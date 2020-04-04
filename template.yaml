@@ -1,0 +1,21 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: aws-lambda-s3-python
+
+Parameters:
+  ExecutionRole:
+    Type: String
+
+Resources:
+  MySkillsDemoLambda:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      FunctionName: "MySkillsDemoLambda"
+      Handler: index.handler
+      Runtime: python3.7
+      Description: ''
+      MemorySize: 128
+      Timeout: 3
+      Role: !Ref ExecutionRole
+      Tracing: Active
+      AutoPublishAlias: live
